@@ -1,0 +1,524 @@
+<html>
+<head>
+<!--code by swarup Mahato-->
+  <title>Canvas Introduction + Tutorial by Swarupinfotech</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    function run()
+    {
+     var content = document.getElementById('code').value;
+     var iframe = document.getElementById('result');
+     iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+     iframe.document.open();
+     iframe.document.write(content);
+     iframe.document.close();
+     return false;
+    }
+   setTimeout(function(){alert("Done hard work on this,So upvote by giving thumbs up\nIf any bugs or mistake are found feel free to comment") },2000);
+           
+  </script>
+  <style>
+    /*code by Swarup Mahato*/
+p{
+        font-size: 0.95em;
+        margin-top: 0px;
+    }
+
+    
+
+code{
+        font-size: 1.3em;
+        color: #009;
+    }
+
+pre{
+        font-size: 1.1em;
+        color: #009;
+        background-color:rgba(72,72,72,0.1);
+        border: 1px solid #e1e1e2;
+        padding: 10px;
+        margin: 10px 0 10px 0;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+h1{
+        font-size: 1.0em;
+        margin-top: 10px;
+        margin-bottom: 6px;
+        padding-top: 4px;
+        font-weight: bold;
+        text-decoration: underline;
+        color:#4cbeff;
+    }
+
+h2{
+        font-size: 0.90em;
+        margin-top: 10px;
+        margin-bottom: 6px;
+        padding-top: 4px;
+        font-weight: bold;
+    }
+h3{
+        font-size: 0.80em;
+        margin-top: 10px;
+        margin-bottom: 0px;
+        padding-top: 4px;
+        font-weight: bold;
+    }
+
+table {
+        font-size: 0.95em;
+    }
+    
+.examples_code {
+    margin-top:-11px;
+    margin-bottom:22px; 
+    background:#ededed; 
+    padding:8px 9px 15px 11px;
+    }
+.examples_code h3 {
+margin-top:-6px;
+ margin-bottom:5px;
+  font-size:18px;
+   font-weight:normal;
+   }
+.preblock pre {
+border-left:#17974C solid 4px;
+ line-height:16px;
+  background:#fff;
+   margin:8px 0px 0px 0px;
+    padding:6px 10px 6px 7px;
+    }
+    
+.button_form2 {background: #17974C;padding:7px 15px 6px 15px; color:#fff; border:none; border-bottom:1px solid #55972b;margin: 12px 0px 15px 0px;font-weight:bold;cursor: pointer; text-align:center;  }
+.button_form2:hover {background: #80bf57;}
+.button_form2 a{text-decoration: none;color:#fff; }
+.button_form2 a:hover{text-decoration: none;color:#fff; }
+
+
+
+table.tbl_code_strip th
+    {
+    background: #555;
+    text-align: left;
+    color: #fff;
+    padding: 3px 7px 3px 7px;
+    background-color: #333333;
+    border: 1px solid #c3c3c3;
+    vertical-align: top;
+    }
+table.tbl_code_strip td
+    {
+        border:1px solid #ccc; 
+        padding:3px 7px 3px 7px;
+        vertical-align: top;
+    }
+
+.main
+{
+    padding: 10px;
+ border:2px solid green;
+    background-color: rgb(233, 239, 254);
+}
+
+ textarea {
+width: 100%;
+ min-height: 500px;
+ text-transform:lowercase ;
+}
+iframe {
+width:100%;
+min-height:500px;
+        }
+        .footer {
+          background-color: var(--second-color);
+          color: #fff;
+          text-align: center;
+          font-weight: var(--font-semi);
+          padding: 2rem 0;
+        }
+     
+    </style>
+ 
+</head>
+<body>
+<div class="main">
+
+
+<center><h1 style="font-size:20px;font-family:serif; color:#17974C;">Canvas Introduction</h1></center>
+<p>The <code>&#60;canvas></code> element is only a container for graphics. You must use a script to actually draw the graphics. A canvas is a rectangular area and it has several methods for drawing paths, boxes, circles, characters, and adding images.</p>
+
+<p>The <code>&#60;canvas></code> element is a new HTML5 markup element that allows drawing in a web page without using Document Object Model (DOM) APIs or plug-ins. Although somewhat new, the <code>&#60;canvas></code>  element has been adopted by most modern browsers.</p>
+
+<p>Instead of creating graphics on-screen using HTML elements and other markup with CSS styling, Canvas allows the drawing of graphics directly using JavaScript commands like <code>drawRect</code>, <code>fill</code>, and <code>drawImage</code>. In addition, it is possible to manipulate pixels directly to modify images and create special effects.  Although Canvas is currently a 2D drawing API, 3D support is planned for future releases.</p>
+
+<h2>Syntax</h2>
+<p></p>
+<pre>
+&#60;canvas id="id"
+  width="width"
+  height="height">
+  fallback_content
+&#60;/canvas>
+</pre>
+
+<p>
+<strong>Note:</strong> 
+<ul class="common">
+<li>The &#60;canvas> element has no drawing abilities of its own</li>
+<li>All drawing must be done inside JavaScript. By default, the &#60;canvas> element has no border and no content</li>
+<li>The optional fallback_content is rendered by browsers that do not support the canvas tag</li>
+<li>Allows drawing of graphics directly without having to resort to <code>&#60;div></code> or CSS tricks</li>
+<li>Canvas is a web standard, supported by most browsers, with compatible implementations</li>
+<li>The canvas is a two-dimensional grid.</li>
+<li>More easily hardware accelerated resulting in fast animations</li>
+<li>The upper-left corner of the canvas has coordinate (0,0)</li>
+<li>In the future, Canvas will support contexts other than ’2d’, such as the pending WebGL spec for 3D graphics.</li>
+</ul>
+</p>
+
+<p>
+<strong>Tip:</strong>  You can have more than one &#60;canvas> elements on one document.</p>
+<p><strong>Tip:</strong> Although using the <code>&#60;canvas></code> element is straightforward, it is helpful to have a basic understanding of HTML and JavaScript.</p>
+
+<h2 class="common">Attributes</h2>
+<p></p>
+<table cellspacing="0" border="0" class="tbl_code_strip" id="tbl_code_strip">
+<tr>
+<th width="150px">Attribute</th>
+<th width="150px">Value</th>
+<th width="">Description</th>
+</tr>
+
+<tr><td>width</td><td>pixels</td><td>width pixels Specifies the width of the canvas (default = 300)</td></tr>
+
+<tr><td>height</td><td>pixels</td><td>height pixels Specifies the height of the canvas area (default = 150)</td></tr>
+
+</table>
+
+
+<h2 class="common">Standard Attributes</h2>
+<p>This (<code>&#60;canvas></code>) tag supports the <b>HTML5 Standard Attributes</b>.</p>
+
+<h2 class="common">Event Attributes</h2>
+<p>This (<code>&#60;canvas></code>) tag supports the <b>HTML5 Event Attributes</b>.</p>
+
+
+<p>The <code>canvas</code> element must have an id (<i>mycanvas</i> in this case) so that a reference to the canvas can be obtained. In addition, the <code>canvas</code> element <b>must</b> specify a <i>width</i> and <i>height</i>.</p>
+
+<p>To get the drawing context, get a reference to the Canvas element (using <code>getElementById)</code> and call <code>getContext(’2d’).</code></p>
+
+<p>With the drawing context, drawing is performed with commands like <code>fillRect</code> and <code>draw.</code></p>
+
+<h2 class="common">Testing for Support</h2>
+<p>Although most modern browsers support Canvas, some of the older versions do not. Therefore, it is a good practice to test for Canvas support. There are two mechanisms to test for Canvas support,</p>
+
+<h2 class="common">Canvas Fallback</h2>
+<p>To be safe, provide alternative content inside the canvas element as shown in the following example:</p>
+
+<pre class="common">
+&#60;canvas id="clock" width="100" height="100">
+   The current time is: 03:51 PM
+&#60;/canvas>
+</pre>
+
+<p>Browsers which support <code>&#60;canvas></code> will ignore the fallback content and render the canvas normally. Otherwise, browsers which don’t support <code>&#60;canvas></code> will render the fallback content within the element.</p>
+
+<h2 class="common">Testing in JavaScript</h2>
+<p>To check for Canvas support in JavaScript, test for the <code>getContext()</code> method. The following code shows how to do this:</p>
+
+<pre class="common">
+var canvas = document.<strong>getElementById</strong>(’mycanvas’);
+if (canvas.<strong>getContext</strong>){
+  // canvas supported code here
+} else {
+  // canvas not supported code here
+}
+</pre>
+
+<h2 class="common">Differences from SVG</h2>
+<p>While both Canvas and SVG can be used to create graphics, they are very different and each has their own purpose. Canvas is an immediate mode drawing surface whereas SVG is a retained mode scene graph. This means that Canvas is a lower level API than SVG, giving the developer more control and speed at the cost of more code and complexity. SVG is a higher level API, which lets the developer quickly draw shapes, but at the cost of fewer features and reduced speed. In addition, SVG is a <i>resolution-independent</i> vector API, while canvas is a <i>resolution-dependent</i> bitmap API.</p>
+
+<p>Currently, Canvas has better browser support and can be used to draw vectors like SVG.</p>
+
+<p>Here are some examples.</p>
+
+
+
+<h2 class="common">Example 1 Draw Rectangular</h2>
+<p></p>
+<div class="examples_code">
+<div class="preblock">
+<pre class="common">
+&#60;canvas id="Canvas01" width="250" height="125"
+style="border:3px solid blue;">
+&#60;/canvas>
+&#60;script>
+  var cv = document.getElementById("Canvas01");
+  var myrec01 = cv.getContext("2d");
+  myrec01.fillStyle = "red";
+  myrec01.fillRect(10,10,160,80);
+&#60;/script>
+</pre>
+</div>
+
+<div class="button_form2" style="width:150px; padding:2px 0px 2px 0px; margin-bottom:0px;"><a href=" #code "  style=" padding:6px 14px 6px 14px; width:140px;">Try it now&nbsp;>></a></div>
+</div>
+
+<p>The Following is the result of the above example:</p>
+<pre class="common">
+<canvas id="Canvas01" width="250" height="125"
+style="border:2px solid black;">
+</canvas><script>
+var cv = document.getElementById("Canvas01");
+var myrec01 = cv.getContext("2d");
+myrec01.fillStyle = "red";
+myrec01.fillRect(10,10,160,80);</script>
+</pre>
+
+
+<h2>Example 2 Draw Line</h2>
+<p>To draw straight lines on a canvas, we will use two methods: 
+<ul class="common">
+<li class="common">moveTo(x,y) defines the starting point of the line and </li>
+<li class="common">lineTo(x,y) defines the ending point of the line. lineTo will connect to the previous straight line.</li>
+</ul>
+</p>
+
+<div class="examples_code">
+<div class="preblock">
+<div>Finally, to make the line visible, we must apply one of the "ink" methods like stroke()</div>
+<pre>
+&#60;canvas id="Canvas02" width="250" height="150"
+style="border:3px solid blue;">
+&#60;/canvas>
+
+&#60;script>
+var cv = document.getElementById("Canvas02");
+var myrec01= cv.getContext("2d");
+myrec01.moveTo(0,150);
+myrec01.lineTo(125,0);
+myrec01.lineTo(250,150);
+myrec01.stroke();
+&#60;/script>
+</pre>
+</div>
+
+<div class="button_form2" style="width:150px; padding:2px 0px 2px 0px; margin-bottom:0px;"><a href=" #code" style=" padding:6px 14px 6px 14px; width:140px;">Try it now&nbsp;>></a></div>
+</div>
+
+<p>The Following is the result of the above example:</p>
+<pre>
+<canvas id="Canvas02" width="250" height="150"
+style="border: 2px solid black; ">
+</canvas>
+<script>var cv = document.getElementById("Canvas02");
+var myrec01= cv.getContext("2d");
+myrec01.moveTo(0,150);
+myrec01.lineTo(125,0);
+myrec01.lineTo(250,150);
+myrec01.stroke();</script>
+</pre>
+
+
+<h2>Example 3 Draw a Circle and Arc</h2>
+<p>To draw straight lines on a canvas, we will use two methods: 
+<ul class="common">
+<li class="common">moveTo(x,y) defines the starting point of the line and </li>
+<li class="common">lineTo(x,y) defines the ending point of the line. lineTo will connect to the previous straight line.</li>
+</ul>
+</p>
+
+<div class="examples_code">
+<div class="preblock">
+<div>Finally, to make the line visible, we must apply one of the "ink" methods like stroke()</div>
+<pre>
+&#60;canvas id="Canvas03" width="220" height="220" style="border:3px solid blue;">&#60;/canvas>
+    &#60;script>
+      var canvas = document.getElementById("Canvas03");
+      var context = canvas.getContext("2d");
+      var x = canvas.width / 2;
+      var y = canvas.height / 2;
+      var radius = 70;
+      var startAngle = 1.2 * Math.PI;
+      var endAngle = 1.8 * Math.PI;
+      var counterClockwise = false;
+
+      context.beginPath();
+      context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
+      context.lineWidth = 15;
+
+      context.strokeStyle = "red";
+      context.stroke();
+
+      context.lineWidth = 10;
+      context.strokeStyle = "green";
+      context.beginPath();
+      context.arc(x,y,40,0,2*Math.PI);
+      context.stroke();
+    &#60;/script>
+</pre>
+</div>
+
+<div class="button_form2" style="width:150px; padding:2px 0px 2px 0px; margin-bottom:0px;"><a href=" #code"  style=" padding:6px 14px 6px 14px; width:140px;">Try it now&nbsp;>></a></div>
+</div>
+
+<p>The Following is the result of the above example:</p>
+<pre>
+<canvas id="Canvas03" width="220" height="220" style="border: 2px solid black; "></canvas>
+    <script>
+      var canvas = document.getElementById("Canvas03");
+      var context = canvas.getContext("2d");
+      var x = canvas.width / 2;
+      var y = canvas.height / 2;
+      var radius = 70;
+      var startAngle = 1.2 * Math.PI;
+      var endAngle = 1.8 * Math.PI;
+      var counterClockwise = false;
+      context.beginPath();
+      context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
+      context.lineWidth = 15;
+      context.strokeStyle = "red";
+      context.stroke();
+      context.lineWidth = 10;
+      context.strokeStyle = "green";
+      context.beginPath();
+      context.arc(x,y,40,0,2*Math.PI);
+      context.stroke();</script>
+</pre>
+
+<div></div>
+<h2>Example 4 Draw Text</h2>
+<p>To draw text on a canvas, the most important property and methods are: 
+<ul>
+<li>font - defines the font properties for text</li>
+<li>fillText(text,x,y) - Draws "filled" text on the canvas</li>
+<li>strokeStyle - property of the canvas context to a color string, hex value, or RGB value</li>
+<li>strokeText(text,x,y) - Draws text on the canvas (no fill)</li>
+</ul>
+</p>
+
+<div class="examples_code">
+<div class="preblock">
+<pre>
+&#60;canvas id="Canvas04" width="600" height="180" style="border:3px solid blue;">&#60;/canvas>
+    &#60;script>
+      var canvas = document.getElementById("Canvas04");
+      var context = canvas.getContext("2d");
+
+      context.font = "40pt Tahoma";
+      context.lineWidth = 3;
+      // stroke color
+      context.strokeStyle = "red";
+      context.strokeText("SOLOLEARN", 60, 70);
+      //filled text
+      context.font = "60px Arial";
+      context.fillText("SOLOLEARN",60,140);
+    &#60;/script>
+</pre>
+</div>
+
+<div class="button_form2" style="width:150px; padding:2px 0px 2px 0px; margin-bottom:0px;"><a href="#code "  style=" padding:6px 14px 6px 14px; width:140px;"> Try it now>> </a></div>
+</div>
+
+<p>The Following is the result of the above example:</p>
+<pre>
+<canvas id="Canvas04" width="600" height="180" style="border: 2px solid black; "></canvas>
+    <script>
+      var canvas = document.getElementById("Canvas04");
+      var context = canvas.getContext("2d");
+      context.font = "40pt Tahoma";
+      context.lineWidth = 3;
+      // stroke color
+      context.strokeStyle ="red";
+      context.strokeText("SWARUPINFOTECH", 60, 70);
+      //filled text
+      context.font = "60px Arial";
+      context.fillText("SWARUP KUMAR",60,140);
+     </script>
+</pre>
+
+<h2>Example 5 Gradient</h2>
+<p>Gradients can be used to fill rectangles, circles, lines, text, etc. Shapes on the canvas are not limited to solid colors. </p>
+<p>There are two types of gradients:
+<ul>
+<li>createLinearGradient(x,y,x1,y1) - To create a linear gradient with HTML5 Canvas</li>
+<li>createRadialGradient(x,y,r,x1,y1,r1) - To create a radial/circulargradient with HTML5 Canvas</li>
+</ul>
+</p>
+
+<p>Linear gradients are defined by an imaginary line which defines the direction of the gradient. Once we’ve created our gradient, we can insert colors using the addColorStop property.</p>
+
+<div class="examples_code">
+<div class="preblock">
+<pre>
+    &#60;canvas id="Canvas05" width="200" height="100">&#60;/canvas>
+    &#60;script>
+      var canvas = document.getElementById("Canvas05");
+      var context = canvas.getContext("2d");
+      context.rect(0, 0, canvas.width, canvas.height);
+
+      // add linear gradient
+      var grd = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+      // light magenta
+      grd.addColorStop(0, "#FDC2FD");   
+      // dark magenta
+      grd.addColorStop(1, "#BF3EBD");
+      context.fillStyle = grd;
+      context.fill();
+    &#60;/script>
+
+    &#60;canvas id="Canvas06" width="200" height="100">&#60;/canvas>
+    &#60;script>
+     var canvas= document.getElementById("Canvas06");
+     var context= canvas.getContext("2d");
+     // Create gradient
+    var grd = context.createRadialGradient(70,40,5,80,50,90);
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+
+   // Fill with gradient
+   context.fillStyle = grd;
+   context.fillRect(8,8,130,70);
+&#60;/script>
+</pre>
+</div>
+
+<div class="button_form2" style="width:150px; padding:2px 0px 2px 0px; margin-bottom:0px;"><a href="#code"  style=" padding:6px 14px 6px 14px; width:140px;"> Try it now>> </a></div>
+</div>
+
+
+<p>The Following is the result of the above example:</p>
+<pre>
+    <canvas id="Canvas05" width="200" height="100"></canvas>
+    <script>
+      var canvas = document.getElementById("Canvas05");
+      var context = canvas.getContext("2d");
+      context.rect(0, 0, canvas.width, canvas.height);
+      var grd = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+      grd.addColorStop(0, "#FDC2FD");   
+      grd.addColorStop(1, "#BF3EBD");
+      context.fillStyle = grd;
+      context.fill();
+    </script>
+    <canvas id="Canvas06" width="200" height="100"></canvas>
+    <script>
+     var canvas= document.getElementById("Canvas06");
+     var context= canvas.getContext("2d");
+     // Create gradient
+    var grd = context.createRadialGradient(70,40,5,80,50,90);
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+   context.fillStyle = grd;
+   context.fillRect(8,8,130,70);</script>
+</pre>
+<br />
+<p align="center">Swarupinfotech Codespace</p>
+<textarea id="code"  style="border:solid 5px #4cbeff" >  </textarea><br/> <br/>
+<center><button onclick="run();" style="width:300px; height:40px; font-weight:bold;border-radius:5px;"> Run code </button></center><br/> <br/>
+<iframe id="result"  style="border:3px solid #4cbeff" ></iframe></p>
+</div>
+<div><footer class="footer">  <p class="footer__copy">&#169; Swarupinfotech. All rigths reserved</p>
+</footer>
